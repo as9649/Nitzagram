@@ -23,7 +23,7 @@ def main():
                                         (WINDOW_WIDTH, WINDOW_HEIGHT))
 
     post1 = Post("Images/keawakapu.jpg", "hhhhhhi", "hi2")
-
+    print(post1.user_name)
     # TODO: add a post here
 
     running = True

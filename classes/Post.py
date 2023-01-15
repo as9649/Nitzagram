@@ -9,6 +9,8 @@ class Post:
     """
     A class used to represent post on Nitzagram
     """
+    user_name = "Eden Shvartz"
+
 
     def __init__(self, image_src, location, description):
         self.image_src = image_src
@@ -44,6 +46,10 @@ class Post:
         description_font = pygame.font.SysFont("chalkduster.ttf", 15)
         display_to_description = description_font.render(self.description, True, (50, 50, 50))
         screen.blit(display_to_description, (DESCRIPTION_TEXT_X_POS, DESCRIPTION_TEXT_Y_POS))
+
+        user_name_font = pygame.font.SysFont("chalkduster.ttf", 15)
+        display_to_user_name = user_name_font.render(self.user_name, True, (50, 50, 50))
+        screen.blit(display_to_user_name, (USER_NAME_X_POS, USER_NAME_Y_POS))
 
     def display_likes(self):
         likes_font = pygame.font.SysFont("chalkduster.ttf", 15)
