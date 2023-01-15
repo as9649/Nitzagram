@@ -29,7 +29,7 @@ def main():
     post3 = Post("Images/noa_kirel.jpg", "hhhhhhi", "hi2")
 
     post4 = Post("Images/montana.jpg", "hhhhhhi", "hi2")
-
+    post5 = Post("Images/montana.jpg", "hhhhhhi", "hi2")
     post_list = [post1, post2, post3, post4]
     print(post1.user_name)
     # TODO: add a post here
