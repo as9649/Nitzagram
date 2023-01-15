@@ -23,6 +23,14 @@ def main():
                                         (WINDOW_WIDTH, WINDOW_HEIGHT))
 
     post1 = Post("Images/keawakapu.jpg", "hhhhhhi", "hi2")
+
+    post2 = Post("Images/ronaldo.jpg", "hhhhhhi", "hi2")
+
+    post3 = Post("Images/noa_kirel.jpg", "hhhhhhi", "hi2")
+
+    post4 = Post("Images/montana.jpg", "hhhhhhi", "hi2")
+
+    post_list = [post1, post2, post3, post4]
     print(post1.user_name)
     # TODO: add a post here
 
