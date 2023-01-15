@@ -1,5 +1,6 @@
 import pygame
 
+from classes.Comment import Comment
 from constants import *
 from helpers import screen
 
@@ -75,6 +76,9 @@ class Post:
             if i >= NUM_OF_COMMENTS_TO_DISPLAY - 1:
                 break
 
-
     def add_like(self):
-        self.likes_counter+=1
+        self.likes_counter += 1
+
+    def add_comment(self, comment_text):
+        comment = Comment(comment_text)
+        self.comments.append(comment)

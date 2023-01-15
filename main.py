@@ -4,13 +4,9 @@ from classes.Post import Post
 from constants import WINDOW_WIDTH, WINDOW_HEIGHT, BLACK
 from helpers import screen
 from test_methods import test_comment
-from buttons import like_button
+from buttons import like_button, comment_button
+from helpers import mouse_in_button, read_comment_from_user
 
-
-def mouse_in_button(button, mouse_pos):
-    if button.x_pos + button.width > mouse_pos[0] > button.x_pos and \
-            button.y_pos < mouse_pos[1] < button.y_pos + button.height:
-        return True
 
 def main():
     # Set up the game display, clock and headline
@@ -28,9 +24,7 @@ def main():
 
     post1 = Post("Images/keawakapu.jpg", "hhhhhhi", "hi2")
 
-
     # TODO: add a post here
-
 
     running = True
     while running:
@@ -43,12 +37,16 @@ def main():
                 mouse_pos = event.pos
                 if mouse_in_button(like_button, mouse_pos):
                     post1.add_like()
+                elif mouse_in_button(comment_button, mouse_pos):
+                    comment_text = read_comment_from_user()
+                    post1.add_comment(comment_text)
+
         # Display the background, presented Image, likes, comments, tags and
         # location(on the Image)
         screen.fill(BLACK)
         screen.blit(background, (0, 0))
         post1.display()
-        test_comment()
+        # test_comment()
         # Update display - without input update everything
         pygame.display.update()
 
