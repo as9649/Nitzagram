@@ -4,7 +4,7 @@ from classes.Post import Post
 from constants import WINDOW_WIDTH, WINDOW_HEIGHT, BLACK
 from helpers import screen
 from test_methods import test_comment
-from buttons import like_button, comment_button
+from buttons import like_button, comment_button, click_post_button
 from helpers import mouse_in_button, read_comment_from_user
 
 
@@ -30,12 +30,15 @@ def main():
 
     post4 = Post("Images/montana.jpg", "hhhhhhi", "hi2")
     post5 = Post("Images/montana.jpg", "hhhhhhi", "hi2")
-    post_list = [post1, post2, post3, post4]
-    print(post1.user_name)
+    post_list = [post1, post2, post3, post4, post5]
+    index = 0
+    current_post = post_list[index]
+    print(current_post.user_name)
     # TODO: add a post here
 
     running = True
     while running:
+
         # Grabs events such as key pressed, mouse pressed and so.
         # Going through all the events that happened in the last clock tick
         for event in pygame.event.get():
@@ -44,16 +47,22 @@ def main():
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = event.pos
                 if mouse_in_button(like_button, mouse_pos):
-                    post1.add_like()
+                    current_post.add_like()
                 elif mouse_in_button(comment_button, mouse_pos):
                     comment_text = read_comment_from_user()
-                    post1.add_comment(comment_text)
+                    current_post.add_comment(comment_text)
+                elif mouse_in_button(click_post_button, mouse_pos):
+                    if index == len(post_list)-1:
+                        index = 0
+                    else:
+                        index += 1
+                    current_post = post_list[index]
 
         # Display the background, presented Image, likes, comments, tags and
         # location(on the Image)
         screen.fill(BLACK)
         screen.blit(background, (0, 0))
-        post1.display()
+        current_post.display()
         # test_comment()
         # Update display - without input update everything
         pygame.display.update()
