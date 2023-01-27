@@ -12,8 +12,8 @@ class Post:
     user_name = "Eden Shvartz"
 
 
-    def __init__(self, image_src, location, description):
-        self.image_src = image_src
+    def __init__(self, location, description):
+
         self.location = location
         self.description = description
         self.likes_counter = 0
